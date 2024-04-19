@@ -1,0 +1,9 @@
+keys:
+  - &nixdev age1vtvkznp6dw0mdtsneyutnrs2a09px9gq0a50mgz8wzdd4yr06vls84whwc
+  - &amdev age1w97cpy0ujs3ra2sqlyyqyz8y6j3jkljpwhagkr2ee5k82jzf0g6qykgflp
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+        - *nixdev
+        - *amdev
