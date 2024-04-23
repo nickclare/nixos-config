@@ -1,5 +1,12 @@
-{config, pkgs, ...}:
+{config, inputs, pkgs, ...}:
 {
+
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+
+    ./neovim
+  ];
+
   home.username = "developer";
   home.homeDirectory = "/home/developer";
 

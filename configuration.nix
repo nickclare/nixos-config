@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ./network-services.nix
       ./coredns.nix
+      ./user.nix
     ];
 
 
