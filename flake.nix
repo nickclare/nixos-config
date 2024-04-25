@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    dns = {
+      url = "github:kirelagin/dns.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,11 +26,11 @@
 
   };
 
-  outputs = { self, nixpkgs, sops-nix, home-manager, ... }@inputs: let inherit (self) outputs; in {
+  outputs = { self, nixpkgs, sops-nix, home-manager, dns, ... }@inputs: let inherit (self) outputs; in {
     
     nixosConfigurations.nixdev = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs dns;};
       modules = [
         ./configuration.nix
 
